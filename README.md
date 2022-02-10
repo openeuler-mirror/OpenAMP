@@ -1,24 +1,24 @@
 # OpenAMP
 
 #### 介绍
-Open Asymmetirc Multi Processing framework project
+本代码仓库主要包含OpenAMP Project相关软件包，包括：
+
+1. openamp  跨运行时/OS通信框架
+
+本代码仓库中软件包主要面向嵌入式场景，主要配合openEuler Embedded使用。和openEuler Embedded
+整合通过基于Yocto的[meta-embedded](https://gitee.com/vonhust/yocto-meta-embedded)完成
 
 #### 软件架构
-软件架构说明
 
+参见上游OpenAMP Project介绍
 
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+参见上游OpenAMP Project介绍
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
+参见上游OpenAMP Project介绍
 #### 参与贡献
 
 1.  Fork 本仓库
