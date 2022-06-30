@@ -1,5 +1,5 @@
 Name: openamp
-Version: 2021.10.0
+Version: 2022.04.0
 Release: 1
 Summary: Open asymmetric multiprocessing framework
 
@@ -48,13 +48,15 @@ cd build
 %license LICENSE.md
 %doc README.md
 %{_libdir}/libopen_amp.so.1
-%{_libdir}/libopen_amp.so.1.1.0
+%{_libdir}/libopen_amp.so.1.2.0
 
 %files devel
 %{_includedir}/openamp/
 %{_libdir}/libopen_amp.so
 
 %changelog
+* Thu Jun 30 2022 luojects <luoyonglun@huawei.com> - 2022.04.0-1
+- update to 2022.04.0
 
-* Fri Feb 11 2022 Wayne Ren <renwei41@huawei.com> - 2022.10.0-1
+* Fri Feb 11 2022 Wayne Ren <renwei41@huawei.com> - 2021.10.0-1
 - Package init
