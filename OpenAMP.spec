@@ -3,7 +3,7 @@ Version: 2022.04.0
 Release: 1
 Summary: Open asymmetric multiprocessing framework
 
-License: BSD
+License: BSD-3-Clause
 URL: http://github.com/OpenAMP
 Source0: https://github.com/OpenAMP/open-amp/archive/v%{version}/%{name}-%{version}.tar.gz
 
@@ -57,6 +57,9 @@ cd build
 %changelog
 * Thu Jun 30 2022 luojects <luoyonglun@huawei.com> - 2022.04.0-1
 - update to 2022.04.0
+
+* Fri Jun 17 2022 liukuo <liukuo@kylinos.cn> - 2021.10.0-2
+- License compliance rectification
 
 * Fri Feb 11 2022 Wayne Ren <renwei41@huawei.com> - 2021.10.0-1
 - Package init
