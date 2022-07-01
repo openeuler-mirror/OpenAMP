@@ -1,6 +1,6 @@
 Name: openamp
-Version: 2021.10.0
-Release: 2
+Version: 2022.04.0
+Release: 1
 Summary: Open asymmetric multiprocessing framework
 
 License: BSD-3-Clause
@@ -48,13 +48,16 @@ cd build
 %license LICENSE.md
 %doc README.md
 %{_libdir}/libopen_amp.so.1
-%{_libdir}/libopen_amp.so.1.1.0
+%{_libdir}/libopen_amp.so.1.2.0
 
 %files devel
 %{_includedir}/openamp/
 %{_libdir}/libopen_amp.so
 
 %changelog
+* Thu Jun 30 2022 luojects <luoyonglun@huawei.com> - 2022.04.0-1
+- update to 2022.04.0
+
 * Fri Jun 17 2022 liukuo <liukuo@kylinos.cn> - 2021.10.0-2
 - License compliance rectification
 
