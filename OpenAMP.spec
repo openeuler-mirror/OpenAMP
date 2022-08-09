@@ -1,6 +1,6 @@
 Name: openamp
 Version: 2022.04.0
-Release: 1
+Release: 2
 Summary: Open asymmetric multiprocessing framework
 
 License: BSD-3-Clause
@@ -25,6 +25,14 @@ Requires:	%{name}%{?_isa} = %{version}-%{release}
 Development file for OpenAMP
 baremetal, and RTOS environments.
 
+%package demos
+Summary:	Demos for OpenAMP
+Requires:	%{name}%{?_isa} = %{version}-%{release}
+
+%description demos
+Demos for OpenAMP
+baremetal, and RTOS environments.
+
 %prep
 %autosetup -p1
 
@@ -34,8 +42,10 @@ cd build
 %cmake -DCMAKE_INSTALL_LIBDIR=%{_libdir} \
 	-DCMAKE_INCLUDE_PATH=%{_includedir}/libmetal/ \
 	-DCMAKE_LIBRARY_PATH=%{_libdir} \
+	-DMACHINE=generic \
 	-DWITH_STATIC_LIB=OFF \
-	-DWITH_APPS=OFF ..
+	-DWITH_PROXY=ON \
+	-DWITH_APPS=ON ..
 
 
 %install
@@ -47,14 +57,19 @@ cd build
 %files
 %license LICENSE.md
 %doc README.md
-%{_libdir}/libopen_amp.so.1
-%{_libdir}/libopen_amp.so.1.2.0
+%{_libdir}/*.so*
 
 %files devel
 %{_includedir}/openamp/
 %{_libdir}/libopen_amp.so
 
+%files demos
+%{_bindir}/*-shared
+
 %changelog
+* Tue Aug 9 2022 zhangziyang <zhangziyang1@huawei.com> - 2022.04.0-2
+- synchronous embedded compilation and packaging options
+
 * Thu Jun 30 2022 luojects <luoyonglun@huawei.com> - 2022.04.0-1
 - update to 2022.04.0
 
