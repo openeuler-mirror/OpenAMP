@@ -1,11 +1,11 @@
 Name: openamp
-Version: 2022.04.0
-Release: 2
+Version: 2022.10.1
+Release: 3
 Summary: Open asymmetric multiprocessing framework
 
 License: BSD-3-Clause
 URL: http://github.com/OpenAMP
-Source0: https://github.com/OpenAMP/open-amp/archive/v%{version}/%{name}-%{version}.tar.gz
+Source0: https://github.com/OpenAMP/open-amp/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
 
 BuildRequires:	cmake
 BuildRequires:	gcc
