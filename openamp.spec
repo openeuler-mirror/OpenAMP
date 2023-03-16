@@ -1,6 +1,6 @@
 Name: openamp
 Version: 2022.10.1
-Release: 3
+Release: 4
 Summary: Open asymmetric multiprocessing framework
 
 License: BSD-3-Clause
@@ -67,6 +67,12 @@ cd build
 %{_bindir}/*-shared
 
 %changelog
+* Wed March 15 2023 hanzongcheng <hanzongcheng@huawei.com> - 2022.10.1-4
+- rename to openamp
+
+* Mon Feb 27 2023 hanzongcheng <hanzongcheng@huawei.com> - 2022.10.1-3
+- update to 2022.10.1
+
 * Tue Aug 9 2022 zhangziyang <zhangziyang1@huawei.com> - 2022.04.0-2
 - synchronous embedded compilation and packaging options
 
