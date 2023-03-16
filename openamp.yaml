@@ -1,4 +1,4 @@
 version_control: github
-src_repo: https://github.com/OpenAMP/meta-openamp
+src_repo: https://github.com/OpenAMP/open-amp
 tag_prefix: "^v"
 separator: "."
