@@ -1,0 +1,44 @@
+From e49995a8a0b354c890454333f7d5ca9712078b83 Mon Sep 17 00:00:00 2001
+From: Yunfei Li <liyunfei33@huawei.com>
+Date: Mon, 6 Mar 2023 15:36:57 +0800
+Subject: [PATCH 2/2] lib:Fix atomic_flag error for clang compilation
+
+Change atomic_int to atomic_flag to solve the error
+reported when compiling with clang.
+
+Signed-off-by: Yunfei Li <liyunfei33@huawei.com>
+---
+ lib/include/openamp/rpmsg_retarget.h | 2 +-
+ lib/proxy/rpmsg_retarget.c           | 3 ++-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/lib/include/openamp/rpmsg_retarget.h b/lib/include/openamp/rpmsg_retarget.h
+index b5fe8c6..791874b 100644
+--- a/lib/include/openamp/rpmsg_retarget.h
++++ b/lib/include/openamp/rpmsg_retarget.h
+@@ -46,7 +46,7 @@ struct rpmsg_rpc_syscall {
+ struct rpmsg_rpc_data {
+ 	struct rpmsg_endpoint ept;
+ 	int ept_destroyed;
+-	atomic_int nacked;
++	atomic_flag nacked;
+ 	void *respbuf;
+ 	size_t respbuf_len;
+ 	rpmsg_rpc_poll poll;
+diff --git a/lib/proxy/rpmsg_retarget.c b/lib/proxy/rpmsg_retarget.c
+index 7a1cb7e..2b93427 100644
+--- a/lib/proxy/rpmsg_retarget.c
++++ b/lib/proxy/rpmsg_retarget.c
+@@ -85,7 +85,8 @@ int rpmsg_rpc_init(struct rpmsg_rpc_data *rpc,
+ 	rpc->ept_destroyed = 0;
+ 	rpc->respbuf = NULL;
+ 	rpc->respbuf_len = 0;
+-	atomic_init(&rpc->nacked, 1);
++	rpc->nacked = (atomic_flag)ATOMIC_FLAG_INIT;
++	atomic_flag_test_and_set(&rpc->nacked);
+ 	ret = rpmsg_create_ept(&rpc->ept, rdev,
+ 			       ept_name, ept_addr, ept_raddr,
+ 			       rpmsg_rpc_ept_cb, rpmsg_service_unbind);
+-- 
+2.28.0.windows.1
+
