@@ -7,6 +7,9 @@ License: BSD-3-Clause
 URL: http://github.com/OpenAMP
 Source0: https://github.com/OpenAMP/open-amp/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
 
+Patch0001:0001-apps-Fix-atomic_flag-error-for-clang-compilation.patch
+Patch0002:0002-lib-Fix-atomic_flag-error-for-clang-compilation.patch
+
 BuildRequires:	cmake
 BuildRequires:	gcc
 BuildRequires:	gcc-c++
@@ -67,6 +70,9 @@ cd build
 %{_bindir}/*-shared
 
 %changelog
+* Fri March 24 2023 liyunfei <liyunfei33@huawei.com> - 2022.10.1-5
+- add patch for clang compile
+
 * Wed March 15 2023 hanzongcheng <hanzongcheng@huawei.com> - 2022.10.1-4
 - rename to openamp
 
