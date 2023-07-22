@@ -1,6 +1,6 @@
 Name: openamp
 Version: 2022.10.1
-Release: 4
+Release: 5
 Summary: Open asymmetric multiprocessing framework
 
 License: BSD-3-Clause
@@ -15,6 +15,7 @@ BuildRequires:	gcc
 BuildRequires:	gcc-c++
 BuildRequires:	libmetal-devel
 BuildRequires:	libsysfs-devel
+BuildRequires:  libatomic
 
 %description
 The OpenAMP framework provides software components that enable development of
@@ -40,6 +41,10 @@ baremetal, and RTOS environments.
 %autosetup -p1
 
 %build
+%if "%toolchain" == "clang"
+	export CFLAGS="$CFLAGS -latomic"
+	export CXXFLAGS="$CXXFLAGS -latomic"
+%endif
 mkdir build
 cd build
 %cmake -DCMAKE_INSTALL_LIBDIR=%{_libdir} \
@@ -70,6 +75,9 @@ cd build
 %{_bindir}/*-shared
 
 %changelog
+* Sun Jul 16 2023 yoo <sunyuechi@iscas.ac.cn> - 2022.10.1-5
+- fix clang build error
+
 * Fri March 24 2023 liyunfei <liyunfei33@huawei.com> - 2022.10.1-5
 - add patch for clang compile
 
